@@ -1,0 +1,14 @@
+Flask==3.0.0
+googletrans==4.0.0-rc1
+gTTS==2.4.0
+pytesseract
+PyPDF2>=3.0.0
+python-docx
+sumy
+urllib3
+nltk
+gunicorn
+pymupdf
+opencv-python==4.8.1.78
+
+`

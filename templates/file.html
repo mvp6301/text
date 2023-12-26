@@ -1,0 +1,48 @@
+<!-- file.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Processing</title>
+</head>
+<body>
+    <h1>File Processing</h1>
+    <form action="{{ url_for('process_file') }}" method="POST" enctype="multipart/form-data">
+        <label for="files">Choose Files:</label>
+        <input type="file" name="file" id="files" accept=".pdf, .txt, .docx" multiple required>
+
+        <br>
+
+        <label for="sentences_count">Enter Sentences Count (default is 10):</label>
+        <input type="number" name="sentences_count" value="10" required>
+        
+        <br>
+
+        <label for="target_language">Select Target Language:</label>
+        <select name="target_language" id="target_language">
+            {% for lang_name, lang_code in language_mapping.items() %}
+                <option value="{{ lang_code }}">{{ lang_name }}</option>
+            {% endfor %}
+        </select>
+
+        <br>
+
+        <!-- Add the translation_choice field -->
+        <label for="translation_choice">Translate Summary?</label>
+        <select name="translation_choice" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <br>
+
+        <input type="submit" value="Process">
+    </form>
+</body>
+</html>
+
+
+
+
+
